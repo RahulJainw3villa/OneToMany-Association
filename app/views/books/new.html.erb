@@ -1,0 +1,13 @@
+<h1> Create New Book</h1>
+<%= form_with model: @book do |form| %>
+    <%= form.fields_for @author do |f| %>
+        <%= f.hidden_field :id, :value => @author.id %>
+    <% end %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

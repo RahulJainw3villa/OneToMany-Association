@@ -1,0 +1,29 @@
+<h3>Create Author</h3>
+<a href="authors/new">Create Author</a><br>
+<h3>ALL Books ---> <h3>
+<a href="books/index">Click Here</a><br> <br>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Create Book</th>
+        <th scope="col">Show Book</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr><%# <%= link_to "Destroy", :method 'delete', author_book_path %> %>
+<%# <%= link_to 'delete', author_book_path(i), method: :delete %>
+
+    </thead>
+  <% @authors.each do |i| %>
+    <tbody>
+      <tr>
+        <td><%= i.name %></td>
+        <td> <%= link_to 'create book' ,new_author_book_path(i) %></td>
+        <td> <%= link_to 'show book' ,author_path(i) %></td>
+        <td><%= link_to 'Update', edit_author_path(i) %></td>
+        <td><%= link_to "Destroy", author_path(i), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td> 
+       </tr>
+    </tbody>
+  <% end %>
+      
+</table>
